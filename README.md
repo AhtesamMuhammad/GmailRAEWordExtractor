@@ -6,10 +6,7 @@ This Java project allows accessing the website of the [Real Academia Española (
 Send emails using the user's Gmail account using an application key. The word whose definition is desired is specified in the email body.
 
 #### Email Reception
-Handles receiving emails using the IMAP protocol. When the email subject contains the word "RAE word", where "word" is the word whose definition is desired, the program extracts the definition of the word and displays it on the console.
-
-#### Static Page Download
-In addition to displaying the definition on the console, the program asks the user if they want to download the static page from the RAE containing the definition in HTML format.
+Handles receiving emails using the IMAP protocol. When the email subject contains the word "RAE word", where "word" is the word whose definition is desired, the program extracts the definition of the word and displays it on the console. In addition to displaying the definition on the console, the program asks the user if they want to download the static page from the RAE containing the definition in HTML format.
 
 ## Requirements
 To send and receive emails via Gmail, you will need a Gmail account with two-step authentication enabled. This enhanced security measure requires an additional layer of verification beyond your regular password. In this process, you will generate an [Application Password](https://support.google.com/accounts/answer/185833?hl=en), different from your usual login credentials. In this way, your account will be protected and you will be able to access your project's features.
@@ -34,20 +31,22 @@ To send and receive emails via Gmail, you will need a Gmail account with two-ste
 ### HttpClient 1.1
 The project utilizes version 1.1 of the HttpClient library to access the RAE website. It is essential to ensure that this specific version is properly configured in your development environment. This ensures compatibility and seamless functionality with the project's codebase.
 
+`HttpClient client = HttpClient.newBuilder().version(HttpClient.Version.HTTP_1_1).build();`
 
 ### Credentials
-Emphasis should be placed on filling in the account data and the subject and content of credentials.txt.
-
-> [!IMPORTANT]
-> If you would like to get it to look up a definition of a word you have to start with "RAE" at the beginning and then the word
-
+Emphasis should be placed on filling in the account data in credentials.txt. <br>
+**Specify that we are using the same email to send and to read the emails for this project**
 | Parameters  | Values |
 | ------------- | ------------- |
 | `email` | exemple@gmail.com  |
 | `addressee`  | exemple@gmail.com  |
 | `passwordApp`  | asdf asdf asdf asdf  |
+<br>
 
-### Exemples:
+> [!IMPORTANT]
+> To utilize the word lookup functionality, you need to ensure the **subject input** starts with the word "RAE" followed by the word you want to define.
+
+## Exemples:
 #### Exemple Sending Email #1:
 **Input:**
 ```
